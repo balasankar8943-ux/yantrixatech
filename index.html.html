@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yantrixa — Next-Generation Software & Tech Solutions. Premium website building, robotics, drones, business analytics, coding tools, and AI search engines limitlessly driving enterprise scale.">
+    <meta name="keywords" content="Yantrixa, Software Company, Website Building, Robotics, Drones, Business Analytics, Coding Tools, AI Search Engines, Tech Startup, Kerala">
+    <meta name="author" content="Yantrixa">
+    <meta name="theme-color" content="#050508">
+
+    <meta property="og:title" content="Yantrixa — Engineering Intelligence">
+    <meta property="og:description" content="Next-Generation Software & AI Tech Solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/logo.jpg">
+
+    <title>Yantrixa — Next-Generation Software & Tech Solutions</title>
+
+    <!-- Comprehensive Favicon Support -->
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="assets/logo.jpg">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <img src="assets/logo.jpg" alt="Yantrixa Logo" class="loader-logo">
+            <div class="loader-bar">
+                <div class="loader-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="grid-bg"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ============= NAVIGATION ============= -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.jpg" alt="Yantrixa">
+                <span class="nav-logo-text">YANTRIXA</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============= HERO SECTION ============= -->
+    <section class="hero" id="hero">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-content">
+            <div class="hero-logo-wrapper reveal">
+                <img src="assets/logo.jpg" alt="Yantrixa Logo" class="hero-logo">
+            </div>
+            <h1 class="hero-title reveal reveal-delay-1">
+                <span class="metallic-text">YANTRIXA</span>
+            </h1>
+            <p class="hero-tagline reveal reveal-delay-2">Next-Generation Software & Tech Solutions</p>
+            <p class="hero-description reveal reveal-delay-3">
+                Empowering global enterprises with cutting-edge website building, autonomous robotics, AI search engines, and advanced business analytics.
+            </p>
+            <div class="hero-buttons reveal reveal-delay-4">
+                <a href="#services" class="btn-primary">Explore Services</a>
+                <a href="#contact" class="btn-secondary">Partner With Us</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============= ABOUT SECTION ============= -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label reveal">About Us</div>
+                    <h2 class="section-title reveal reveal-delay-1">Architecting the<br>Digital Frontier</h2>
+                    <p class="section-subtitle reveal reveal-delay-2">
+                        Yantrixa is a fast-growing software and IT startup founded by visionary engineering students from <strong>Sree Buddha College of Engineering (Autonomous), Alappuzha</strong>. We combine raw technical talent with enterprise-scale architectural thinking.
+                    </p>
+                    <p class="section-subtitle reveal reveal-delay-2" style="margin-top: 16px;">
+                        Led by <strong>Balasankar</strong> (Founder) alongside Co-Founders <strong>Abhiram Gangadharan</strong> and <strong>Thejus R Raj</strong>, Yantrixa is aggressively expanding its capabilities to offer world-class digital tools, platforms, and intelligent software hardware combinations.
+                    </p>
+                    <div class="about-stats reveal reveal-delay-3">
+                        <div class="stat-card">
+                            <div class="stat-number">SaaS</div>
+                            <div class="stat-label">Enterprise Solutions</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">AI+</div>
+                            <div class="stat-label">Machine Learning</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">Core Verticals</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">🚀</div>
+                            <div class="stat-label">Rapid Expansion</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual reveal reveal-delay-2">
+                    <div class="about-image-wrapper">
+                        <img src="assets/web-dev.png" alt="Yantrixa Software Command Center">
+                        <div class="about-badge">
+                            <p>🌐 SOFTWARE + IT INNOVATION</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= SERVICES SECTION ============= -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-label reveal">Our Software & Tech Services</div>
+            <h2 class="section-title reveal reveal-delay-1">Enterprise Solutions<br>That Scale</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                We deliver a comprehensive suite of digital and autonomous products designed to elevate your business operations and digital footprint.
+            </p>
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                
+                <!-- Service 1: Website Building -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-content" style="padding-top: 2rem;">
+                        <div class="service-icon">💻</div>
+                        <h3>Website Building</h3>
+                        <p>
+                            Premium, ultra-fast, and responsive web applications. We build stunning portfolios, high-conversion landing pages, and complex SaaS platforms engineered for scale and speed.
+                        </p>
+                        <a href="#contact" class="btn-service">Start Building →</a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Robotics -->
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-content" style="padding-top: 2rem;">
+                        <div class="service-icon">🤖</div>
+                        <h3>Robotics</h3>
+                        <p>
+                            Intelligent software-driven robotics systems. We develop sophisticated control algorithms, embedded software, and AI interfaces for autonomous systems capable of complex operations.
+                        </p>
+                        <a href="#contact" class="btn-service">Explore Robotics →</a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Drones -->
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-content" style="padding-top: 2rem;">
+                        <div class="service-icon">🚁</div>
+                        <h3>Drones</h3>
+                        <p>
+                            Next-gen autonomous flight software. We build the digital brains for UAVs, specializing in automated mapping, swarm coordination, and real-time aerial analytics.
+                        </p>
+                        <a href="#contact" class="btn-service">Discover Drones →</a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Business Analytic Tools -->
+                <div class="service-card reveal">
+                    <div class="service-content" style="padding-top: 2rem;">
+                        <div class="service-icon">📊</div>
+                        <h3>Business Analytic Tools</h3>
+                        <p>
+                            Transform your raw data into actionable intelligence. We build custom dashboards, predictive modeling tools, and automated reporting systems tailored to your enterprise.
+                        </p>
+                        <a href="#contact" class="btn-service">Optimize Business →</a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Computer Coding Tools -->
+                <div class="service-card reveal">
+                    <div class="service-content" style="padding-top: 2rem;">
+                        <div class="service-icon">⚡</div>
+                        <h3>Computer Coding Tools</h3>
+                        <p>
+                            Developer-centric software tools designed to maximize productivity. We create powerful IDE extensions, automated CI/CD pipeline monitors, and proprietary code optimization engines.
+                        </p>
+                        <a href="#contact" class="btn-service">Enhance Workflows →</a>
+                    </div>
+                </div>
+
+                <!-- Service 6: AI Search Engines -->
+                <div class="service-card reveal">
+                    <div class="service-content" style="padding-top: 2rem;">
+                        <div class="service-icon">🔍</div>
+                        <h3>AI Search Engines</h3>
+                        <p>
+                            Vector-based semantic search tools powered by Large Language Models. Implement state-of-the-art conversational retrieval systems configured directly for your internal company data.
+                        </p>
+                        <a href="#contact" class="btn-service">Deploy AI Search →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= TECHNOLOGY SECTION ============= -->
+    <section class="section" id="technology">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <div class="section-label reveal" style="justify-content: center;">
+                    <span>Technology Stack</span>
+                </div>
+                <h2 class="section-title reveal reveal-delay-1">Built With Precision</h2>
+                <p class="section-subtitle reveal reveal-delay-2" style="margin: 0 auto 20px;">
+                    Our foundation combines cutting-edge web frameworks, scalable cloud architecture, and state-of-the-art machine learning models.
+                </p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card reveal reveal-delay-1">
+                    <span class="tech-icon">🌐</span>
+                    <h4>Modern Web</h4>
+                    <p>React, Next.js, and highly optimized frontend architectures delivering lightning-fast, seamless user experiences.</p>
+                </div>
+                <div class="tech-card reveal reveal-delay-2">
+                    <span class="tech-icon">☁️</span>
+                    <h4>Cloud Native</h4>
+                    <p>We deploy on AWS and Google Cloud, utilizing serverless functions and Kubernetes to ensure perfect scalability.</p>
+                </div>
+                <div class="tech-card reveal reveal-delay-3">
+                    <span class="tech-icon">🧠</span>
+                    <h4>Large Language Models</h4>
+                    <p>Integrating GPT, Claude, and open-source models with RAG pipelines for deeply intelligent business tools.</p>
+                </div>
+                <div class="tech-card reveal reveal-delay-1">
+                    <span class="tech-icon">🐍</span>
+                    <h4>Backend & Data</h4>
+                    <p>Robust Python and Node.js APIs supporting vast databases, real-time sockets, and intensive data processing.</p>
+                </div>
+                <div class="tech-card reveal reveal-delay-2">
+                    <span class="tech-icon">🤖</span>
+                    <h4>Robotics Middleware</h4>
+                    <p>ROS2 protocols bridging our high-end software control centers with localized robotic edge hardware.</p>
+                </div>
+                <div class="tech-card reveal reveal-delay-3">
+                    <span class="tech-icon">🛡️</span>
+                    <h4>Secure Architecture</h4>
+                    <p>End-to-end encryption, strict authentication layers, and rigorous testing for enterprise-grade security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= VISION / CTA SECTION ============= -->
+    <section class="section" id="vision">
+        <div class="vision-glow"></div>
+        <div class="container">
+            <div class="vision-wrapper">
+                <div class="section-label reveal" style="justify-content: center;">
+                    <span>Our Vision</span>
+                </div>
+                <h2 class="vision-quote reveal reveal-delay-1">
+                    "To redefine global <span>digital infrastructure</span> — 
+                    engineering software that <span>empowers</span> businesses and 
+                    <span>automates</span> tomorrow."
+                </h2>
+                <p class="section-subtitle reveal reveal-delay-2" style="margin: 0 auto; text-align: center;">
+                    We are building tools that completely revolutionize how enterprises operate, analyze data, and engage with the digital world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= CONTACT SECTION ============= -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-label reveal">Get In Touch</div>
+            <h2 class="section-title reveal reveal-delay-1">Let's Build<br>The Future Together</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                Ready to transform your business with exceptional software and AI solutions? Reach out, and let’s discuss your expansion.
+            </p>
+            <div class="contact-grid">
+                <div class="contact-info reveal reveal-delay-2">
+                    <h3>Connect With Yantrixa</h3>
+                    <p>
+                        We're actively seeking partners, mentors, clients, and collaborators. 
+                        Let's explore how we can build something extraordinary.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📧</div>
+                            <a href="mailto:yantrixatech@gmail.com" class="contact-item-text contact-link">yantrixatech@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📱</div>
+                            <a href="tel:+918075946173" class="contact-item-text contact-link">+91 80759 46173</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">💬</div>
+                            <a href="https://wa.me/918075946173?text=Hi%20Yantrixa!%20I'm%20interested%20in%20your%20services." target="_blank" class="contact-item-text contact-link whatsapp-link">Chat on WhatsApp</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
+                            <span class="contact-item-text">India</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">🌐</div>
+                            <a href="https://www.yantrixa.in" target="_blank" class="contact-item-text contact-link">www.yantrixa.in</a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Buttons -->
+                    <div class="quick-contact-buttons">
+                        <a href="mailto:yantrixatech@gmail.com" class="quick-btn email-btn">
+                            <span>📧</span> Email Us
+                        </a>
+                        <a href="https://wa.me/918075946173?text=Hi%20Yantrixa!%20I'm%20interested%20in%20your%20services." target="_blank" class="quick-btn whatsapp-btn">
+                            <span>💬</span> WhatsApp
+                        </a>
+                        <a href="tel:+918075946173" class="quick-btn call-btn">
+                            <span>📞</span> Call Now
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form reveal reveal-delay-3" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Access Key -->
+                    <!-- Make sure to place your real key here so the form sends to your inbox! -->
+                    <input type="hidden" name="access_key" value="ccd1f0ef-c636-4dfd-b2e5-45067c0e8cde">
+                    <input type="hidden" name="subject" value="New Service Inquiry from Yantrixa Website">
+                    <input type="hidden" name="from_name" value="Yantrixa Contact Form">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" id="form-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="form-email" placeholder="Email Address" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" id="form-phone" placeholder="Phone Number (optional)">
+                    </div>
+                    <div class="form-group">
+                        <select name="service" id="form-service" class="form-select" required>
+                            <option value="" disabled selected>Select Service You're Interested In</option>
+                            <option value="Website Building">💻 Website Building</option>
+                            <option value="Robotics">🤖 Robotics</option>
+                            <option value="Drones">🚁 Drones</option>
+                            <option value="Business Analytic Tools">📊 Business Analytic Tools</option>
+                            <option value="Computer Coding Tools">⚡ Computer Coding Tools</option>
+                            <option value="AI Search Engines">🔍 AI Search Engines</option>
+                            <option value="General Inquiry">💬 General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="form-message" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submit-btn" style="width: 100%;">Send Message →</button>
+                    <p class="form-note">We typically respond within 24 hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= FOOTER ============= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo.jpg" alt="Yantrixa">
+                        <span>YANTRIXA</span>
+                    </div>
+                    <p>
+                        Engineering Intelligence. Premium enterprise software, AI solutions, and digital innovation.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Core Services</h4>
+                    <a href="#services">Website Building</a>
+                    <a href="#services">Robotics & Drones</a>
+                    <a href="#services">AI Search Engines</a>
+                    <a href="#services">Business Analytics</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#technology">Technology Stack</a>
+                    <a href="#vision">Our Vision</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Workplace Policy</a>
+                </div>
+                <div class="footer-col" style="display: flex; flex-direction: column; gap: 15px;">
+                    <h4>Social & Connect</h4>
+                    <a href="https://www.instagram.com/yantrixatech/" target="_blank" style="display: flex; align-items: center; gap: 8px;">
+                        📸 Instagram
+                    </a>
+                    <a href="https://www.linkedin.com/company/yantrixatech/?lipi=urn%3Ali%3Apage%3Ad_flagship3_messaging_conversation_detail%3BWT5m95I%2BRhSRqgF3xt7r2w%3D%3D" target="_blank" style="display: flex; align-items: center; gap: 8px;">
+                        🔗 LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Yantrixa. All rights reserved. Engineering Intelligence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
