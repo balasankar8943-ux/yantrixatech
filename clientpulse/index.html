@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yantrixia ClientPulse — Lightweight India-specific B2B Client Health Scorer. Track GST compliance, payment behavior, engagement, and revenue health across all your B2B clients.">
+    <meta name="keywords" content="Yantrixia, ClientPulse, B2B, Client Health Score, India, GST Compliance, Payment Tracking, SaaS, CRM">
+    <meta name="author" content="Yantrixia">
+    <meta name="theme-color" content="#050508">
+
+    <meta property="og:title" content="Yantrixia ClientPulse — B2B Client Health Scorer">
+    <meta property="og:description" content="Lightweight India-specific B2B Client Health Scorer. Track payment health, GST compliance, engagement, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/logo.jpg">
+
+    <title>ClientPulse — B2B Client Health Scorer | Yantrixia</title>
+
+    <link rel="icon" href="../assets/logo.jpg" type="image/jpeg">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="../assets/logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Grid -->
+    <div class="bg-grid"></div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- App Layout -->
+    <div class="app-layout">
+
+        <!-- ============= SIDEBAR ============= -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.jpg" alt="Yantrixia" class="sidebar-logo">
+                <div class="sidebar-brand">
+                    <span class="sidebar-brand-name">YANTRIXIA</span>
+                    <span class="sidebar-brand-product">ClientPulse</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item active" data-view="dashboard" id="nav-dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-view="addclient" id="nav-addclient">
+                    <span class="nav-icon">➕</span>
+                    <span>Add Client</span>
+                </div>
+                <div class="nav-item" data-view="scoring" id="nav-scoring">
+                    <span class="nav-icon">⚖️</span>
+                    <span>Scoring Config</span>
+                </div>
+                <div class="nav-item" data-view="pricing" id="nav-pricing">
+                    <span class="nav-icon">💳</span>
+                    <span>Pricing & Plans</span>
+                </div>
+                <div class="nav-item" data-view="settings" id="nav-settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                © 2026 Yantrixia · v1.0
+            </div>
+        </aside>
+
+        <!-- ============= MAIN CONTENT ============= -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu">☰</button>
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" placeholder="Search clients..." autocomplete="off">
+                        <span class="search-shortcut">Ctrl+K</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <button class="topbar-btn" title="Notifications" onclick="App.navigateTo('dashboard')">🔔</button>
+                    <button class="topbar-btn" title="Settings" onclick="App.navigateTo('settings')">⚙️</button>
+                </div>
+            </header>
+
+            <!-- Trial Banner -->
+            <div class="trial-banner" id="trialBanner">
+                <span class="trial-text">Free trial: 14 days remaining</span>
+                <button class="btn-trial" onclick="App.navigateTo('pricing')">Upgrade →</button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+
+                <!-- ============= DASHBOARD VIEW ============= -->
+                <div class="view-container active" id="view-dashboard">
+                    <div class="view-title">
+                        <span>Dashboard</span>
+                        <button class="btn-primary-sm" onclick="App.navigateTo('addclient')">
+                            <span>+</span> Add Client
+                        </button>
+                    </div>
+
+                    <!-- Metric Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-icon">👥</span>
+                            <div class="metric-label">Total Clients</div>
+                            <div class="metric-value" id="metric-total">0</div>
+                        </div>
+                        <div class="metric-card healthy">
+                            <span class="metric-icon">🟢</span>
+                            <div class="metric-label">Healthy</div>
+                            <div class="metric-value" id="metric-healthy">0</div>
+                        </div>
+                        <div class="metric-card atrisk">
+                            <span class="metric-icon">🟡</span>
+                            <div class="metric-label">At Risk</div>
+                            <div class="metric-value" id="metric-atrisk">0</div>
+                        </div>
+                        <div class="metric-card critical">
+                            <span class="metric-icon">🔴</span>
+                            <div class="metric-label">Critical</div>
+                            <div class="metric-value" id="metric-critical">0</div>
+                        </div>
+                        <div class="metric-card revenue">
+                            <span class="metric-icon">💰</span>
+                            <div class="metric-label">Total Revenue</div>
+                            <div class="metric-value" id="metric-revenue">₹0</div>
+                        </div>
+                        <div class="metric-card revenue-risk">
+                            <span class="metric-icon">⚠️</span>
+                            <div class="metric-label">Revenue at Risk</div>
+                            <div class="metric-value" id="metric-revenue-risk">₹0</div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Grid: Chart + Alerts -->
+                    <div class="dashboard-grid">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="panel-title">Client Health Distribution</span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="chart-container">
+                                    <canvas id="chart-distribution"></canvas>
+                                    <div class="chart-legend">
+                                        <div class="legend-item">
+                                            <div class="legend-dot" style="background:#00d4ff"></div>
+                                            Healthy (70+)
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-dot" style="background:#ffb800"></div>
+                                            At Risk (50-69)
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-dot" style="background:#ff4444"></div>
+                                            Critical (&lt;50)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="panel-title">⚠️ Risk Alerts</span>
+                            </div>
+                            <div class="panel-body" id="alertsList" style="max-height:320px;overflow-y:auto;">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table Controls -->
+                    <div class="table-controls">
+                        <div class="filter-group">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="healthy">🟢 Healthy</button>
+                            <button class="filter-btn" data-filter="atrisk">🟡 At Risk</button>
+                            <button class="filter-btn" data-filter="critical">🔴 Critical</button>
+                        </div>
+                        <div class="sort-group">
+                            <span style="color:var(--text-muted);font-size:0.78rem;font-family:var(--font-heading);margin-right:4px;">Sort:</span>
+                            <button class="sort-btn active" data-sort="score">Score</button>
+                            <button class="sort-btn" data-sort="name">Name</button>
+                            <button class="sort-btn" data-sort="revenue">Revenue</button>
+                            <button class="sort-btn" data-sort="dso">DSO</button>
+                        </div>
+                    </div>
+
+                    <!-- Client Table -->
+                    <div class="panel">
+                        <div class="client-table-wrapper">
+                            <table class="client-table">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Score</th>
+                                        <th>Grade</th>
+                                        <th>Status</th>
+                                        <th>Trend</th>
+                                        <th>Revenue</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clientTableBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============= ADD / EDIT CLIENT VIEW ============= -->
+                <div class="view-container" id="view-addclient">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h2 id="formTitle">Add New Client</h2>
+                            <button class="btn-back" onclick="App.navigateTo('dashboard')">← Back</button>
+                        </div>
+
+                        <form id="clientForm" onsubmit="App.handleFormSubmit(event)">
+                            <!-- Basic Info -->
+                            <div class="form-section">
+                                <div class="form-section-title">🏢 Basic Information</div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Company Name *</label>
+                                        <input type="text" name="companyName" id="field-companyName" class="form-input" placeholder="e.g. Pinnacle Tech Solutions" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Contact Person</label>
+                                        <input type="text" name="contactPerson" id="field-contactPerson" class="form-input" placeholder="e.g. Rajesh Sharma">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" name="email" id="field-email" class="form-input" placeholder="e.g. rajesh@company.in">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Phone</label>
+                                        <input type="tel" name="phone" id="field-phone" class="form-input" placeholder="e.g. +91 98765 43210">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Industry Sector</label>
+                                        <select name="industry" id="field-industry" class="form-select">
+                                            <option value="">Select Industry</option>
+                                            <option value="IT Services">IT Services</option>
+                                            <option value="Manufacturing">Manufacturing</option>
+                                            <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                            <option value="Logistics">Logistics</option>
+                                            <option value="FMCG">FMCG</option>
+                                            <option value="Retail">Retail</option>
+                                            <option value="Healthcare">Healthcare</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Real Estate">Real Estate</option>
+                                            <option value="Digital Marketing">Digital Marketing</option>
+                                            <option value="Financial Services">Financial Services</option>
+                                            <option value="Agriculture">Agriculture</option>
+                                            <option value="Textiles">Textiles</option>
+                                            <option value="Automotive">Automotive</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Financial -->
+                            <div class="form-section">
+                                <div class="form-section-title">💰 Financial Details</div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Monthly Revenue (₹)</label>
+                                        <input type="number" name="monthlyRevenue" id="field-monthlyRevenue" class="form-input" placeholder="e.g. 150000" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Contract Value (₹)</label>
+                                        <input type="number" name="contractValue" id="field-contractValue" class="form-input" placeholder="e.g. 1800000" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Payment Terms</label>
+                                        <select name="paymentTerms" id="field-paymentTerms" class="form-select">
+                                            <option value="15">Net 15</option>
+                                            <option value="30" selected>Net 30</option>
+                                            <option value="45">Net 45</option>
+                                            <option value="60">Net 60</option>
+                                            <option value="90">Net 90</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Revenue Trend</label>
+                                        <select name="revenueTrend" id="field-revenueTrend" class="form-select">
+                                            <option value="growing">📈 Growing</option>
+                                            <option value="stable" selected>→ Stable</option>
+                                            <option value="declining">📉 Declining</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GST Details -->
+                            <div class="form-section">
+                                <div class="form-section-title">📋 GST Compliance</div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">GSTIN</label>
+                                        <input type="text" name="gstin" id="field-gstin" class="form-input" placeholder="e.g. 27AABCP1234A1Z5" maxlength="15" style="text-transform:uppercase">
+                                        <span class="field-indicator" id="gstin-indicator"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">GST Status</label>
+                                        <select name="gstStatus" id="field-gstStatus" class="form-select">
+                                            <option value="active">✅ Active</option>
+                                            <option value="inactive">⚪ Inactive</option>
+                                            <option value="suspended">⚠️ Suspended</option>
+                                            <option value="cancelled">🚫 Cancelled</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last GST Filing Date</label>
+                                        <input type="date" name="lastGSTFiling" id="field-lastGSTFiling" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment History -->
+                            <div class="form-section">
+                                <div class="form-section-title">💸 Payment History</div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Last Payment Date</label>
+                                        <input type="date" name="lastPaymentDate" id="field-lastPaymentDate" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Average DSO (days)</label>
+                                        <input type="number" name="averageDSO" id="field-averageDSO" class="form-input" placeholder="e.g. 30" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Outstanding Amount (₹)</label>
+                                        <input type="number" name="outstandingAmount" id="field-outstandingAmount" class="form-input" placeholder="e.g. 85000" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Payment Rating (1-5)</label>
+                                        <select name="paymentRating" id="field-paymentRating" class="form-select">
+                                            <option value="1">1 — Very Poor</option>
+                                            <option value="2">2 — Poor</option>
+                                            <option value="3" selected>3 — Average</option>
+                                            <option value="4">4 — Good</option>
+                                            <option value="5">5 — Excellent</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Engagement -->
+                            <div class="form-section">
+                                <div class="form-section-title">🤝 Engagement</div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Last Contact Date</label>
+                                        <input type="date" name="lastContactDate" id="field-lastContactDate" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Meeting Frequency</label>
+                                        <select name="meetingFrequency" id="field-meetingFrequency" class="form-select">
+                                            <option value="weekly">Weekly</option>
+                                            <option value="biweekly">Biweekly</option>
+                                            <option value="monthly" selected>Monthly</option>
+                                            <option value="quarterly">Quarterly</option>
+                                            <option value="rarely">Rarely</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Avg Response Time (hours)</label>
+                                        <input type="number" name="responseTime" id="field-responseTime" class="form-input" placeholder="e.g. 12" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">NPS Score (0-10)</label>
+                                        <input type="number" name="npsScore" id="field-npsScore" class="form-input" placeholder="e.g. 8" min="0" max="10">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Support -->
+                            <div class="form-section">
+                                <div class="form-section-title">🎧 Support Quality</div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Open Tickets</label>
+                                        <input type="number" name="openTickets" id="field-openTickets" class="form-input" placeholder="e.g. 2" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Avg Resolution Time (hours)</label>
+                                        <input type="number" name="avgResolutionTime" id="field-avgResolutionTime" class="form-input" placeholder="e.g. 12" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Escalation Count</label>
+                                        <input type="number" name="escalationCount" id="field-escalationCount" class="form-input" placeholder="e.g. 0" min="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="form-actions">
+                                <button type="submit" class="btn-submit">💾 Save Client</button>
+                                <button type="button" class="btn-cancel" onclick="App.navigateTo('dashboard')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ============= CLIENT DETAIL VIEW ============= -->
+                <div class="view-container" id="view-clientdetail">
+                    <div id="detail-header">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div class="detail-grid">
+                        <div class="detail-score-panel">
+                            <canvas id="detail-gauge"></canvas>
+                            <div id="detail-status-info"></div>
+                        </div>
+                        <div class="detail-dims-panel">
+                            <div class="panel-title">Dimension Breakdown</div>
+                            <canvas id="detail-dimensions"></canvas>
+                        </div>
+                    </div>
+
+                    <h3 style="font-family:var(--font-heading);margin-bottom:16px;font-size:1.1rem;">📋 Client Metrics</h3>
+                    <div class="detail-metrics-grid" id="detail-metrics">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div class="flags-panel">
+                        <div class="panel-title" style="margin-bottom:12px;">🚨 Risk Flags</div>
+                        <div id="detail-flags">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============= SCORING CONFIG VIEW ============= -->
+                <div class="view-container" id="view-scoring">
+                    <div class="view-title">
+                        <span>⚖️ Scoring Configuration</span>
+                    </div>
+                    <div id="scoring-config-body">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- ============= PRICING VIEW ============= -->
+                <div class="view-container" id="view-pricing">
+                    <div class="view-title">
+                        <span>💳 Pricing & Plans</span>
+                    </div>
+                    <div id="pricing-body">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- ============= SETTINGS VIEW ============= -->
+                <div class="view-container" id="view-settings">
+                    <div class="view-title">
+                        <span>⚙️ Settings</span>
+                    </div>
+                    <div id="settings-body">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Razorpay SDK (loads in production) -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+
+    <!-- App Scripts -->
+    <script src="scoring.js"></script>
+    <script src="charts.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('ServiceWorker registered:', reg.scope))
+                    .catch(err => console.log('ServiceWorker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>

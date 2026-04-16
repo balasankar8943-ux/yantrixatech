@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yantrixa - Professional Certificate</title>
+    <!-- Professional Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050508;
+            --border-color: #333344;
+            --accent-cyan: #00d4ff;
+            --text-main: #ffffff;
+            --text-secondary: #9090a8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-main);
+        }
+
+        .certificate-container {
+            background-color: var(--bg-color);
+            width: 1056px; 
+            height: 816px; 
+            padding: 30px; /* Reduced outer padding */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .certificate-border {
+            border: 2px solid var(--border-color);
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 40px; /* Reduced inner padding to prevent overflow */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background: radial-gradient(circle at center, #0a0a14 0%, #050508 100%);
+        }
+
+        /* Subtle cyan line accent */
+        .certificate-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 6px;
+            background-color: var(--accent-cyan);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .company-name {
+            font-family: 'Roboto', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 2px;
+        }
+
+        .cert-info {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-family: 'Roboto', monospace;
+            line-height: 1.6;
+        }
+
+        .certificate-body {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .document-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .certify-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .student-name-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 46px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 25px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .student-name-input:focus {
+            border-bottom: 1px solid var(--accent-cyan);
+        }
+
+        .student-name-input::placeholder {
+            color: #444;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .achievement-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .course-highlight {
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 19px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+            position: relative;
+        }
+
+        .signature-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            width: 250px;
+        }
+
+        .signature-image {
+            font-family: 'Great Vibes', cursive;
+            font-size: 44px;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 5px;
+            height: 50px; 
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .official-name {
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .official-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: var(--accent-cyan);
+            margin-bottom: 10px; /* Space between title and the bottom margin line */
+        }
+
+        /* Ensuring the signature line/margin is at the very bottom of the block */
+        .signature-line {
+            width: 100%;
+            border-bottom: 1px solid var(--text-secondary);
+        }
+
+        .seal {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -5px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .seal-inner {
+            width: 90px;
+            height: 90px;
+            border: 2px dashed var(--accent-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .seal-text {
+            font-size: 9px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .seal-star {
+            color: var(--text-main);
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        .action-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #222;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 250px;
+            border: 1px solid #444;
+        }
+
+        .action-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .action-btn {
+            background: var(--accent-cyan);
+            color: #000;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .action-btn:hover {
+            background: #fff;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .action-container {
+                display: none;
+            }
+            .certificate-container {
+                box-shadow: none;
+                width: 100%;
+                height: 100vh;
+                padding: 0;
+                background-color: var(--bg-color) !important;
+            }
+            .certificate-border {
+                background: radial-gradient(circle at center, #0a0a14 0%, #050508 100%) !important;
+            }
+            .student-name-input {
+                border-bottom: 1px solid transparent !important;
+            }
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="action-container">
+        <div class="action-title">Certificate Controls</div>
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 10px;">Type the student name directly on the certificate, then click print.</p>
+        <button class="action-btn" onclick="window.print()">Print to PDF</button>
+    </div>
+
+    <div class="certificate-container">
+        <div class="certificate-border">
+            
+            <div class="header">
+                <div class="logo-area">
+                    <img src="assets/logo.jpg" alt="Logo" class="logo">
+                    <div class="company-name">Yantrixa</div>
+                </div>
+                <div class="cert-info">
+                    DATE ISSUED: <span id="current-date"></span><br>
+                    CERTIFICATE ID: YTX-<span id="random-id"></span>
+                </div>
+            </div>
+
+            <div class="certificate-body">
+                <h1 class="document-title">Certificate of Completion</h1>
+                <div class="certify-text">This is to proudly certify that</div>
+
+                <input type="text" class="student-name-input" placeholder="Type Student Name Here" autocomplete="off" spellcheck="false">
+
+                <p class="achievement-text">
+                    has successfully completed the comprehensive professional workshop on<br>
+                    <span class="course-highlight">Website Building and Hosting</span><br>
+                    demonstrating practical proficiency and technical competency required by industry standards.
+                </p>
+            </div>
+
+            <div class="footer">
+                <!-- Signature 1: Balashankar S (CEO) -->
+                <div class="signature-section">
+                    <div class="signature-image">Balashankar S</div>
+                    <div class="official-name">Balashankar S</div>
+                    <div class="official-title">Chief Executive Officer</div>
+                    <div class="signature-line"></div>
+                </div>
+
+                <!-- Corporate Seal in the middle -->
+                <div class="seal">
+                    <div class="seal-inner">
+                        <div class="seal-text">Official</div>
+                        <div class="seal-star">✦</div>
+                        <div class="seal-text">Certified</div>
+                    </div>
+                </div>
+
+                <!-- Signature 2: Abhiram Gangadharan (CTO) -->
+                <div class="signature-section">
+                    <div class="signature-image">Abhiram G.</div>
+                    <div class="official-name">Abhiram Gangadharan</div>
+                    <div class="official-title">Chief Technology Officer</div>
+                    <div class="signature-line"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const dateObj = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = dateObj.toLocaleDateString('en-US', options).toUpperCase();
+
+        const randomId = Math.random().toString(36).substring(2, 10).toUpperCase();
+        document.getElementById('random-id').textContent = randomId;
+    </script>
+</body>
+</html>
