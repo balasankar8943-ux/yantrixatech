@@ -1748,7 +1748,7 @@ img {
     object-fit: contain;
     animation: pulse-glow 1.5s ease-in-out infinite;
     border-radius: 12px;
-    margin-bottom: 24px;
+    margin: 0 auto 24px auto;
 }
 
 .loader-bar {

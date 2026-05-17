@@ -210,8 +210,8 @@ contactForm.addEventListener('submit', async (e) => {
 
     // Update hidden subject with selected service
     const serviceSelect = document.getElementById('form-service');
-    const hiddenSubject = document.getElementById('hidden-subject');
-    if (serviceSelect && serviceSelect.value) {
+    const hiddenSubject = contactForm.querySelector('input[name="subject"]');
+    if (serviceSelect && serviceSelect.value && hiddenSubject) {
         hiddenSubject.value = `Yantrixa Inquiry: ${serviceSelect.value}`;
     }
 
