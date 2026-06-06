@@ -567,6 +567,68 @@ img {
     letter-spacing: 1px;
 }
 
+/* Achievements Styling */
+.about-achievements {
+    margin-top: 32px;
+}
+
+.achievements-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.achievement-card {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition);
+}
+
+.achievement-card:hover {
+    border-color: var(--border-glow);
+    background: var(--bg-glass-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.achievement-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
+    line-height: 1;
+}
+
+.achievement-details h5 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.achievement-details p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.achievement-details strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 .about-visual {
     position: relative;
 }
@@ -1776,4 +1838,214 @@ img {
 @keyframes pulse-glow {
     0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.1)); }
     50% { filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.3)); }
+}
+
+/* ============================================
+   FEATURED PRODUCTS — Two-Card Grid
+   ============================================ */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.product-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px 36px;
+    text-align: center;
+    overflow: hidden;
+    transition: var(--transition);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-card);
+}
+
+/* Glow overlays */
+.product-card-glow {
+    position: absolute;
+    top: -60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.08;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.product-card:hover .product-card-glow {
+    opacity: 0.18;
+}
+
+.product-glow-cyan {
+    background: var(--accent-cyan);
+}
+
+.product-glow-purple {
+    background: #a855f7;
+}
+
+/* Badge */
+.product-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+}
+
+/* Icon */
+.product-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+/* Title */
+.product-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+/* URL */
+.product-url {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Description */
+.product-description {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Tags */
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.product-tag {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 5px 12px;
+    transition: var(--transition-fast);
+}
+
+.product-card:hover .product-tag {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* CTA Buttons */
+.btn-product {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-product::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-product:hover::before {
+    opacity: 1;
+}
+
+/* Cyan variant (VeyuSearch) */
+.btn-product-cyan {
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    background: rgba(0, 212, 255, 0.06);
+}
+
+.btn-product-cyan:hover {
+    background: rgba(0, 212, 255, 0.15);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Purple variant (CodCraft) */
+.btn-product-purple {
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.06);
+}
+
+.btn-product-purple:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Card-specific hover border accents */
+.product-card:nth-child(1):hover {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.product-card:nth-child(2):hover {
+    border-color: rgba(168, 85, 247, 0.2);
 }
