@@ -2049,3 +2049,152 @@ img {
 .product-card:nth-child(2):hover {
     border-color: rgba(168, 85, 247, 0.2);
 }
+
+/* ============================================
+   PARTNERS SECTION
+   ============================================ */
+.partners-section {
+    padding: 80px 0;
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    border-bottom: 1px solid var(--border-subtle);
+    overflow: hidden;
+}
+
+.partners-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.partners-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 16px;
+    border: 1px solid var(--accent-cyan-dim);
+    background: rgba(0, 212, 255, 0.05);
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.partners-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.partner-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    width: 320px;
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+}
+
+.partner-card:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    background: var(--bg-glass-hover);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+/* Floating animation with alternating behavior */
+.partner-card:nth-child(1) {
+    animation: partner-float-1 7s ease-in-out infinite;
+}
+
+.partner-card:nth-child(2) {
+    animation: partner-float-2 7s ease-in-out infinite;
+}
+
+@keyframes partner-float-1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes partner-float-2 {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(0); }
+}
+
+/* Pause animation on hover */
+.partner-card:hover {
+    animation-play-state: paused;
+}
+
+.partner-logo-container {
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 16px;
+    transition: var(--transition);
+}
+
+.partner-card:hover .partner-logo-container {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.partner-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.partner-card:hover .partner-logo-img {
+    transform: scale(1.05);
+}
+
+.partner-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.partner-role {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
