@@ -81,7 +81,7 @@ class Particle {
         const dynamicOpacity = this.opacity * (0.7 + Math.sin(this.pulse) * 0.3);
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 212, 255, ${dynamicOpacity})`;
+        ctx.fillStyle = `rgba(255, 204, 0, ${dynamicOpacity})`;
         ctx.fill();
     }
 }
@@ -104,7 +104,7 @@ function drawLines() {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
+                ctx.strokeStyle = `rgba(255, 204, 0, ${opacity})`;
                 ctx.lineWidth = 0.5;
                 ctx.stroke();
             }
